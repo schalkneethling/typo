@@ -1,0 +1,109 @@
+:root {
+  color-scheme: light dark;
+
+  /* Raw palette — light values first, dark values second */
+  --surface-base-light: #f8f8fc;
+  --surface-base-dark: #0c0c18;
+  --surface-raised-light: #f0f0f8;
+  --surface-raised-dark: #111122;
+  --surface-overlay-light: #e8e8f4;
+  --surface-overlay-dark: #1a1a2e;
+  --border-subtle-light: #c8c8dc;
+  --border-subtle-dark: #636390;
+  --border-strong-light: #a8a8c8;
+  --border-strong-dark: #656590;
+  --text-primary-light: #1a1a2e;
+  --text-primary-dark: #e8e8f0;
+  --text-secondary-light: #4a4a68;
+  --text-secondary-dark: #a8a8c0;
+  --text-muted-light: #6e6e8a;
+  --text-muted-dark: #8585a3;
+  --accent-light: #5a5ad0;
+  --accent-dark: #7c7cf0;
+  --accent-hover-light: #4444b8;
+  --accent-hover-dark: #9494ff;
+  --accent-muted-light: #dcdcf8;
+  --accent-muted-dark: #4a4a8a;
+  --input-bg-light: #ffffff;
+  --input-bg-dark: #16162a;
+  --focus-ring-light: #5a5ad0;
+  --focus-ring-dark: #7c7cf0;
+  --body-highlight-light: rgba(90, 90, 208, 0.08);
+  --body-highlight-dark: rgba(124, 124, 240, 0.08);
+  --danger-light: #c03030;
+  --danger-dark: #f07070;
+  --scrollbar-track-light: #e8e8f4;
+  --scrollbar-track-dark: #16162a;
+  --scrollbar-thumb-light: #a8a8c8;
+  --scrollbar-thumb-dark: #4a4a68;
+
+  /* Semantic tokens */
+  --surface-base: light-dark(var(--surface-base-light), var(--surface-base-dark));
+  --surface-raised: light-dark(var(--surface-raised-light), var(--surface-raised-dark));
+  --surface-overlay: light-dark(var(--surface-overlay-light), var(--surface-overlay-dark));
+  --border-subtle: light-dark(var(--border-subtle-light), var(--border-subtle-dark));
+  --border-strong: light-dark(var(--border-strong-light), var(--border-strong-dark));
+  --text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
+  --text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
+  --text-muted: light-dark(var(--text-muted-light), var(--text-muted-dark));
+  --accent: light-dark(var(--accent-light), var(--accent-dark));
+  --accent-hover: light-dark(var(--accent-hover-light), var(--accent-hover-dark));
+  --accent-muted: light-dark(var(--accent-muted-light), var(--accent-muted-dark));
+  --input-bg: light-dark(var(--input-bg-light), var(--input-bg-dark));
+  --focus-ring: light-dark(var(--focus-ring-light), var(--focus-ring-dark));
+  --body-highlight: light-dark(var(--body-highlight-light), var(--body-highlight-dark));
+  --danger: light-dark(var(--danger-light), var(--danger-dark));
+  --scrollbar-track: light-dark(var(--scrollbar-track-light), var(--scrollbar-track-dark));
+  --scrollbar-thumb: light-dark(var(--scrollbar-thumb-light), var(--scrollbar-thumb-dark));
+
+  /* Typography — UI chrome (1rem = 16px) */
+  --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", monospace;
+  --font-size-root: 1rem;
+  --font-size-xs: 0.6875rem;
+  --font-size-sm: 0.75rem;
+  --font-size-md: 0.8125rem;
+  --font-size-base: 0.875rem;
+  --font-size-lg: 1.125rem;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --line-height-base: 1.5;
+  --line-height-tight: 1.25;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-overline: 0.08em;
+  --letter-spacing-caps: 0.06em;
+
+  /* Spacing — 4px base (0.25rem) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-xs: var(--space-1);
+  --space-sm: var(--space-2);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-8);
+
+  /* Component insets — block axis, then inline axis */
+  --inset-control-block: var(--space-2);
+  --inset-control-inline: var(--space-3);
+  --inset-button-block: var(--space-2);
+  --inset-button-inline: var(--space-4);
+  --inset-compact-block: var(--space-1);
+  --inset-compact-inline: var(--space-2);
+
+  /* Layout */
+  --border-width: 0.0625rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --sidebar-inline-size: 20rem;
+  --breakpoint-md: 48rem;
+  --layout-preview-label: 4rem;
+  --layout-preview-size: 5rem;
+  --layout-font-list-max: 12rem;
+  --layout-outline: 0.125rem;
+  --layout-outline-offset: var(--border-width);
+}

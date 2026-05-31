@@ -1,0 +1,8 @@
+[build]
+command = "npm run build"
+publish = "dist"
+
+# VITE_GOOGLE_FONTS_API_KEY must be set in Netlify:
+# Site configuration → Environment variables → Add variable
+# Scopes: Builds (required). Optionally Deploy previews.
+# Varlock resolves it at build time via $VITE_GOOGLE_FONTS_API_KEY when VARLOCK_ENV is production/preview.

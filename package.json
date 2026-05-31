@@ -1,0 +1,54 @@
+{
+  "name": "typo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Browser-based typography scale designer with live preview, fluid clamp() export, and copy-ready CSS custom properties and utility classes.",
+  "keywords": [
+    "typography",
+    "type-scale",
+    "modular-scale",
+    "fluid-typography",
+    "css",
+    "design-system",
+    "design-tokens",
+    "clamp",
+    "google-fonts",
+    "lit",
+    "vite"
+  ],
+  "homepage": "https://github.com/schalkneethling/typo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schalkneethling/typo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/schalkneethling/typo/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "varlock run -- vp dev",
+    "build": "tsc && vp build",
+    "preview": "vp preview",
+    "test": "vp test",
+    "check": "VARLOCK_ENV=test vp check && bunx lit-analyzer",
+    "prepare": "vp config"
+  },
+  "dependencies": {
+    "@varlock/1password-plugin": "^1.1.0",
+    "@varlock/vite-integration": "^1.1.1",
+    "lit": "^3.3.3",
+    "varlock": "^1.2.0"
+  },
+  "devDependencies": {
+    "lit-analyzer": "^2.0.3",
+    "ts-lit-plugin": "^2.0.2",
+    "typescript": "~6.0.2",
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vite-plus": "latest"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+  },
+  "packageManager": "bun@1.3.14"
+}
