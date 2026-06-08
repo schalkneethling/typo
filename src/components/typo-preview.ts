@@ -1,5 +1,4 @@
 import { html } from "lit";
-import type { PropertyValues } from "lit";
 import { classMap } from "lit/directives/class-map.js";
 import { styleMap } from "lit/directives/style-map.js";
 import { DEFAULT_STATE, SCALE_PRESETS, type AppState } from "../app/types.ts";
@@ -56,22 +55,6 @@ export class TypoPreview extends LightDomElement {
   constructor() {
     super();
     this.state = DEFAULT_STATE;
-  }
-
-  willUpdate(changed: PropertyValues<this>): void {
-    if (!changed.has("state")) return;
-
-    const { backgroundColor, textColor } = this.state;
-    if (backgroundColor) {
-      this.style.setProperty("--preview-bg", backgroundColor);
-    } else {
-      this.style.removeProperty("--preview-bg");
-    }
-    if (textColor) {
-      this.style.setProperty("--preview-text", textColor);
-    } else {
-      this.style.removeProperty("--preview-text");
-    }
   }
 
   render() {

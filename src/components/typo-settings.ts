@@ -1,6 +1,5 @@
 import { html, nothing } from "lit";
 import { DEFAULT_STATE, SCALE_PRESETS, type AppState, type DisplayUnit } from "../app/types.ts";
-import { previewBackgroundForPicker, previewTextForPicker } from "../core/preview-colors.ts";
 import { hasApiKey } from "../fonts/google-fonts.ts";
 import { LightDomElement } from "../lit/light-dom-element.ts";
 import { bindSettingsDelegation } from "../ui/settings-delegation.ts";
@@ -201,28 +200,6 @@ export class TypoSettings extends LightDomElement {
               data-state-key="letterSpacingEm"
               .value=${String(state.letterSpacingEm)}
             />
-          </div>
-          <div class="color-fields">
-            <label class="color-field" for="field-textColor">
-              <span class="color-field__label">Text</span>
-              <input
-                class="color-field__swatch"
-                id="field-textColor"
-                type="color"
-                data-state-key="textColor"
-                .value=${previewTextForPicker(state.textColor)}
-              />
-            </label>
-            <label class="color-field" for="field-backgroundColor">
-              <span class="color-field__label">Background</span>
-              <input
-                class="color-field__swatch"
-                id="field-backgroundColor"
-                type="color"
-                data-state-key="backgroundColor"
-                .value=${previewBackgroundForPicker(state.backgroundColor)}
-              />
-            </label>
           </div>
         </div>
       </details>

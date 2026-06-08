@@ -264,57 +264,6 @@ typo-font-picker {
   gap: var(--space-sm);
 }
 
-.color-fields {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  align-items: center;
-}
-
-.color-field {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  min-block-size: 2.75rem;
-  cursor: pointer;
-}
-
-.color-field__label {
-  font-size: var(--font-size-md);
-  color: var(--text-secondary);
-}
-
-.color-field__swatch {
-  appearance: none;
-  inline-size: 1.375rem;
-  block-size: 1.375rem;
-  padding: 0;
-  border: var(--border-width) solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.color-field__swatch::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.color-field__swatch::-webkit-color-swatch {
-  border: none;
-  border-radius: calc(var(--radius-sm) - var(--border-width));
-}
-
-.color-field__swatch::-moz-color-swatch {
-  border: none;
-  border-radius: calc(var(--radius-sm) - var(--border-width));
-}
-
-.color-field__swatch:focus {
-  outline: var(--layout-outline) solid var(--focus-ring);
-  outline-offset: var(--layout-outline-offset);
-}
-
 .unit-toggle {
   display: flex;
   border: var(--border-width) solid var(--border-subtle);

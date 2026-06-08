@@ -1,4 +1,3 @@
-import { PREVIEW_COLORS, exportPreviewColor } from "./preview-colors.ts";
 import {
   computeFluidClamp,
   formatFluidFunctionCall,
@@ -53,20 +52,16 @@ export function exportCss(state: AppState): string {
     );
   }
 
+  const letterSpacing = state.letterSpacingEm === 0 ? "0" : `${state.letterSpacingEm}em`;
+
   lines.push(":root {");
-  lines.push(`  --typescale-ratio: ${ratio};`);
+  lines.push(`  --typescale-ratio: ${ratio}; /* ratio this static scale was generated against */`);
   lines.push(`  --typo-body-family: "${state.bodyFontFamily}", system-ui, sans-serif;`);
   lines.push(`  --typo-heading-family: "${state.headingFontFamily}", Georgia, serif;`);
   lines.push(`  --typo-body-weight-default: ${state.bodyFontWeight};`);
   lines.push(`  --typo-heading-weight-default: ${state.headingFontWeight};`);
   lines.push(`  --typo-line-height: ${state.lineHeight};`);
-  lines.push(`  --typo-letter-spacing: ${state.letterSpacingEm}em;`);
-  lines.push(
-    `  --text-color: ${exportPreviewColor(state.textColor, PREVIEW_COLORS.text.light, PREVIEW_COLORS.text.dark)};`,
-  );
-  lines.push(
-    `  --background-color: ${exportPreviewColor(state.backgroundColor, PREVIEW_COLORS.background.light, PREVIEW_COLORS.background.dark)};`,
-  );
+  lines.push(`  --typo-letter-spacing: ${letterSpacing};`);
 
   const { baseScale, minScale, maxScale } = computeFluidScales(ratio);
   const fluidByToken = new Map<ScaleToken, ReturnType<typeof computeFluidClamp>>();
@@ -111,7 +106,6 @@ export function exportCss(state: AppState): string {
     lines.push(`  font-weight: ${weight};`);
     lines.push(`  line-height: var(--typo-line-height);`);
     lines.push(`  letter-spacing: var(--typo-letter-spacing);`);
-    lines.push(`  color: var(--text-color);`);
     lines.push("}", "");
   }
 

@@ -33,8 +33,6 @@ export interface AppState {
   headingFontWeight: number;
   lineHeight: number;
   letterSpacingEm: number;
-  textColor: string | null;
-  backgroundColor: string | null;
 }
 
 export interface TokenSize {
@@ -87,7 +85,7 @@ export const DEFAULT_STATE: AppState = {
   displayUnit: "rem",
   fluidTypography: false,
   fluidCssFunction: false,
-  minViewportPx: 375,
+  minViewportPx: 320,
   maxViewportPx: 1280,
   bodyFontFamily: "Inter",
   headingFontFamily: "Lora",
@@ -95,6 +93,4 @@ export const DEFAULT_STATE: AppState = {
   headingFontWeight: 600,
   lineHeight: 1.5,
   letterSpacingEm: 0,
-  textColor: null,
-  backgroundColor: null,
 };

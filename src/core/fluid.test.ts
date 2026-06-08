@@ -47,8 +47,8 @@ describe("computeFluidClamp", () => {
 
 describe("formatFluidFunctionDefinition", () => {
   it("uses viewport bounds as rem defaults", () => {
-    const css = formatFluidFunctionDefinition(375, 1280, 16);
-    expect(css).toContain("--min-vw <length>: 23.438rem");
+    const css = formatFluidFunctionDefinition(320, 1280, 16);
+    expect(css).toContain("--min-vw <length>: 20rem");
     expect(css).toContain("--max-vw <length>: 80rem");
     expect(css).toContain("@function --fluid-size(");
   });
