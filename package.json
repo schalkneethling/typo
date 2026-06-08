@@ -4,30 +4,30 @@
   "private": true,
   "description": "Browser-based typography scale designer with live preview, fluid clamp() export, and copy-ready CSS custom properties and utility classes.",
   "keywords": [
-    "typography",
-    "type-scale",
-    "modular-scale",
-    "fluid-typography",
+    "clamp",
     "css",
     "design-system",
     "design-tokens",
-    "clamp",
+    "fluid-typography",
     "google-fonts",
     "lit",
+    "modular-scale",
+    "type-scale",
+    "typography",
     "vite"
   ],
   "homepage": "https://github.com/schalkneethling/typo#readme",
+  "bugs": {
+    "url": "https://github.com/schalkneethling/typo/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/schalkneethling/typo.git"
   },
-  "bugs": {
-    "url": "https://github.com/schalkneethling/typo/issues"
-  },
   "type": "module",
   "scripts": {
     "dev": "varlock run -- vp dev",
-    "build": "tsc && vp build",
+    "build": "tsc && tsc -p tsconfig.node.json && vp build",
     "preview": "vp preview",
     "test": "vp test",
     "check": "VARLOCK_ENV=test vp check && bunx lit-analyzer",
@@ -40,6 +40,7 @@
     "varlock": "^1.2.0"
   },
   "devDependencies": {
+    "@types/node": "^24.0.0",
     "lit-analyzer": "^2.0.3",
     "ts-lit-plugin": "^2.0.2",
     "typescript": "~6.0.2",

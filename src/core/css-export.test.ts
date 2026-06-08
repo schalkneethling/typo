@@ -6,7 +6,7 @@ import { exportPreviewColor, PREVIEW_COLORS } from "./preview-colors.ts";
 describe("exportPreviewColor", () => {
   it("exports light-dark() when no custom color is set", () => {
     expect(exportPreviewColor(null, PREVIEW_COLORS.text.light, PREVIEW_COLORS.text.dark)).toBe(
-      "light-dark(#1a1a2e, #e8e8f0)",
+      "light-dark(#2b2d42, #edf2f4)",
     );
   });
 

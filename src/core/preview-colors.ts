@@ -1,12 +1,12 @@
 /** Preview palette — mirrors app surface/text tokens for export and pickers. */
 export const PREVIEW_COLORS = {
   text: {
-    light: "#1a1a2e",
-    dark: "#e8e8f0",
+    light: "#2b2d42",
+    dark: "#edf2f4",
   },
   background: {
-    light: "#f8f8fc",
-    dark: "#0c0c18",
+    light: "#edf2f4",
+    dark: "#2b2d42",
   },
 } as const;
 

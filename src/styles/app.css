@@ -233,13 +233,19 @@ typo-font-picker {
 .field select {
   inline-size: 100%;
   padding-block: var(--inset-control-block);
-  padding-inline: var(--inset-control-inline);
+  padding-inline-start: var(--inset-control-inline);
+  padding-inline-end: var(--inset-control-inline);
   background: var(--input-bg);
   border: var(--border-width) solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   font: inherit;
   font-size: var(--font-size-base);
+}
+
+.field select {
+  /* Reserve space for the native chevron so end inset matches the start */
+  padding-inline-end: calc(var(--inset-control-inline) + 1.25em);
 }
 
 .field input:focus,
