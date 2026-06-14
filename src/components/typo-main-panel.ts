@@ -30,7 +30,7 @@ export class TypoMainPanel extends LightDomElement {
   #restoreRatio = PANEL_SPLIT_DEFAULT;
   #dragging = false;
   #splitEnabled = true;
-  #mediaQuery = window.matchMedia("(min-width: 48.0625rem)");
+  #mediaQuery = window.matchMedia("(width >= 48rem)");
 
   constructor() {
     super();

@@ -42,9 +42,15 @@ typo-app {
   overflow: hidden;
 }
 
-.sidebar {
+.sidebar-container {
   grid-column: 1;
   grid-row: 1;
+  min-block-size: 0;
+  position: relative;
+}
+
+.sidebar {
+  block-size: 100%;
   min-block-size: 0;
   background: var(--surface-raised);
   border-inline-end: var(--border-width) solid var(--border-subtle);
@@ -54,6 +60,24 @@ typo-app {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+}
+
+.sidebar-drawer__close {
+  display: none;
+}
+
+.mobile-chrome {
+  display: none;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (width >= 48rem) {
+  .app-shell--sidebar-open .sidebar-container {
+    translate: none;
+  }
 }
 
 typo-main-panel {
@@ -130,31 +154,142 @@ typo-main-panel {
   min-block-size: 10rem;
 }
 
-/* Mobile: settings → typography → CSS */
-@media (max-inline-size: 48rem) {
+/* Mobile: toolbar + preview/export stack; settings in off-canvas drawer */
+@media (width < 48rem) {
   .app-shell {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows:
-      minmax(0, auto)
+      auto
       minmax(12rem, 1fr)
       minmax(10rem, min(18rem, 32dvh));
   }
 
-  typo-main-panel,
+  .sidebar-container {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: min(var(--sidebar-inline-size), 85vw);
+    z-index: 200;
+    translate: -100% 0;
+    transition: translate 0.25s ease;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+  }
+
+  .app-shell--sidebar-open .sidebar-container {
+    translate: 0;
+  }
+
+  .sidebar {
+    border-inline-end: none;
+    box-shadow: 0 0 2rem rgb(0 0 0 / 0.25);
+    padding-block-start: calc(var(--space-lg) + 2.25rem + var(--space-sm));
+  }
+
+  .sidebar__title {
+    display: none;
+  }
+
+  .sidebar-drawer__close {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    inset-block-start: var(--space-md);
+    inset-inline-end: var(--space-md);
+    z-index: 1;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    padding: 0;
+    border: var(--border-width) solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--surface-overlay);
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  .sidebar-drawer__close:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
+
+  .sidebar-drawer__close:focus-visible {
+    outline: var(--layout-outline) solid var(--focus-ring);
+    outline-offset: var(--layout-outline-offset);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: rgb(0 0 0 / 0.45);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .app-shell--sidebar-open .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    grid-column: 1;
+    grid-row: 1;
+    padding-block: var(--space-sm);
+    padding-inline: var(--space-md);
+    background: var(--surface-raised);
+    border-block-end: var(--border-width) solid var(--border-subtle);
+  }
+
+  .mobile-chrome__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-tight);
+  }
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    padding: 0;
+    border: var(--border-width) solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--surface-overlay);
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  .menu-toggle:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
+
+  .menu-toggle:focus-visible {
+    outline: var(--layout-outline) solid var(--focus-ring);
+    outline-offset: var(--layout-outline-offset);
+  }
+
+  typo-main-panel {
+    display: contents;
+  }
+
   .main-panel {
     display: contents;
   }
 
   .main-panel__primary {
     display: contents;
-  }
-
-  .sidebar {
-    grid-column: 1;
-    grid-row: 1;
-    max-block-size: min(42dvh, 26rem);
-    border-inline-end: none;
-    border-block-end: var(--border-width) solid var(--border-subtle);
   }
 
   .preview-canvas {
@@ -167,6 +302,13 @@ typo-main-panel {
     grid-column: 1;
     grid-row: 3;
     border-block-start: none;
+  }
+}
+
+@media (width < 48rem) and (prefers-reduced-motion: reduce) {
+  .sidebar-container,
+  .sidebar-backdrop {
+    transition-duration: 0.01ms;
   }
 }
 
