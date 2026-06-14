@@ -19,32 +19,37 @@ export class TypoApp extends LightDomElement {
 
   #unsubscribe?: () => void;
   #mobileQuery = window.matchMedia(MOBILE_QUERY);
+  #abort?: AbortController;
 
   constructor() {
     super();
     this.appState = getState();
     this.sidebarOpen = false;
-    this.#mobileQuery.addEventListener("change", this.#onMobileChange);
   }
 
   connectedCallback(): void {
     super.connectedCallback();
+    this.#abort = new AbortController();
+    const { signal } = this.#abort;
+
     this.#unsubscribe = onStateChange((state) => {
       this.appState = state;
     });
-    document.addEventListener("keydown", this.#onKeydown);
+    this.#mobileQuery.addEventListener("change", this.#onMobileChange, { signal });
+    document.addEventListener("keydown", this.#onKeydown, { signal });
   }
 
   disconnectedCallback(): void {
     this.#unsubscribe?.();
-    this.#mobileQuery.removeEventListener("change", this.#onMobileChange);
-    document.removeEventListener("keydown", this.#onKeydown);
+    this.#abort?.abort();
     super.disconnectedCallback();
   }
 
   #onMobileChange = (): void => {
-    if (!this.#mobileQuery.matches && this.sidebarOpen) {
+    if (this.sidebarOpen) {
       this.sidebarOpen = false;
+    } else {
+      this.requestUpdate();
     }
   };
 
